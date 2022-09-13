@@ -1,0 +1,66 @@
+EBandPlannerROS:
+# common parameters
+#  xy_goal_tolerance: 0.02
+#  yaw_goal_tolerance: 0.02618
+  rot_stopped_vel: 0.0
+  trans_stopped_vel: 0.0
+  
+# eband local planner parameters
+  eband_min_relative_overlap: &bubble_overlap 0.44
+#  eband_min_relative_overlap: &bubble_overlap 0.7
+  eband_tiny_bubble_distance: 0.02
+  eband_tiny_bubble_expansion: 0.01
+  path_cropping_distance: 0.25
+  eband_internal_force_gain: 0.014
+#  eband_internal_force_gain: 1.0
+  eband_external_force_x_gain: &external_force 0.01
+  eband_external_force_y_gain: 0.006
+  eband_external_force_z_gain: 0.006
+  num_iterations_eband_optimization: 3
+  eband_equilibrium_approx_max_recursion_depth: 6
+  eband_equilibrium_relative_overshoot: 0.1
+  eband_significant_force_lower_bound: 0.03
+#  eband_significant_force_lower_bound: 0.15
+#  costmap_weight: &factor 10.0 # -log( (disc_cost) / 252 ) / weight
+  costmap_weight: 10.0
+  
+# trajectory controller parameters 
+#  max_vel_lin: 0.9
+#  max_vel_th: 0.7
+  min_vel_lin: 0.0
+  min_vel_th: 0.0
+  min_in_place_vel_th: 0.0
+  in_place_trans_vel: 0.0
+#  k_prop: 18.0 # k_prop/k_damp * control_deviation
+  goal_k_prop: 14.0
+#  k_damp: 10.0
+  k_damp: 10.0
+  #Ctrl_Rate: &ctrlrate 30.0
+  Ctrl_Rate: &ctrlrate 5.0
+#  max_acceleration: 0.7 # s = 0.5*v*v/a 
+#  virtual_mass: 1.0 # (1.0/virt_mass_) * k_damp * desired_velocity
+#  max_translational_acceleration: 1.2
+#  max_rotational_acceleration: 1.2
+  rotation_correction_threshold: 0.8
+  goal_deaccl_dist: 0.9
+  
+  differential_drive: false
+
+# Old version eband parameters
+  eband_min_relative_bubble_overlap_: *bubble_overlap 
+#  eband_external_force_gain: *external_force
+  eband_external_force_gain: 0.03
+  tolerance_timeout: 0.5
+
+
+# move_base
+controller_frequency: *ctrlrate
+
+# inflation
+local_costmap:
+  transform_tolerance: 0.5
+  update_frequency: *ctrlrate
+  publish_frequency: *ctrlrate
+  inflation_layer:
+#    cost_scaling_factor: *factor
+    cost_scaling_factor: 8

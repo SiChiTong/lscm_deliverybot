@@ -1,0 +1,6 @@
+[submodule "sim_world"]
+	path = sim_world
+	url = https://github.com/JosefGst/sim_world.git
+[submodule "urdf_basic_shapes"]
+	path = urdf_basic_shapes
+	url = https://github.com/JosefGst/urdf_basic_shapes.git
