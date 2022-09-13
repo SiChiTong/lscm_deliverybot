@@ -4,3 +4,6 @@
 [submodule "urdf_basic_shapes"]
 	path = urdf_basic_shapes
 	url = https://github.com/JosefGst/urdf_basic_shapes.git
+[submodule "multibot_layer"]
+	path = multibot_layer
+	url = https://github.com/JosefGst/multibot_layer.git
