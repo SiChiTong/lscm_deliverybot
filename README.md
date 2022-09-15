@@ -2,9 +2,10 @@
 
 ## Single deliverybot
 `roslaunch sim_world hospital.launch model:=deliverybot`  
-![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/multi_hospital.png)  
-`roslaunch deliverybot_nav navigation.launch model:=deliverybot`  
+![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_hospital.png)  
 
+`roslaunch deliverybot_nav navigation.launch model:=deliverybot`  
+![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_deliverybot.png)  
 
 
 
@@ -13,6 +14,7 @@
 ![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/multi_hospital.png)
 
 `roslaunch deliverybot_nav multi_nav_bringup.launch`  
+![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/multi_deliverybot.png)
 
 
 ## Multiple deliverybots real

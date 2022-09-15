@@ -58,6 +58,30 @@ Visualization Manager:
         All Enabled: false
         map:
           Value: true
+        robot1/base_footprint:
+          Value: true
+        robot1/base_link:
+          Value: true
+        robot1/butt:
+          Value: true
+        robot1/casterwheel_back:
+          Value: true
+        robot1/casterwheel_front:
+          Value: true
+        robot1/head:
+          Value: true
+        robot1/left_wheel:
+          Value: true
+        robot1/odom:
+          Value: true
+        robot1/right_wheel:
+          Value: true
+        robot1/scan:
+          Value: true
+        robot1/screen:
+          Value: true
+        robot1/wit/Imu:
+          Value: true
         robot2/base_footprint:
           Value: true
         robot2/base_link:
@@ -70,13 +94,41 @@ Visualization Manager:
           Value: true
         robot2/head:
           Value: true
+        robot2/left_wheel:
+          Value: true
         robot2/odom:
           Value: true
-        robot2/scan_filtered:
+        robot2/right_wheel:
+          Value: true
+        robot2/scan:
           Value: true
         robot2/screen:
           Value: true
         robot2/wit/Imu:
+          Value: true
+        robot3/base_footprint:
+          Value: true
+        robot3/base_link:
+          Value: true
+        robot3/butt:
+          Value: true
+        robot3/casterwheel_back:
+          Value: true
+        robot3/casterwheel_front:
+          Value: true
+        robot3/head:
+          Value: true
+        robot3/left_wheel:
+          Value: true
+        robot3/odom:
+          Value: true
+        robot3/right_wheel:
+          Value: true
+        robot3/scan:
+          Value: true
+        robot3/screen:
+          Value: true
+        robot3/wit/Imu:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -85,6 +137,27 @@ Visualization Manager:
       Show Names: true
       Tree:
         map:
+          robot1/odom:
+            robot1/base_footprint:
+              robot1/base_link:
+                robot1/butt:
+                  {}
+                robot1/casterwheel_back:
+                  {}
+                robot1/casterwheel_front:
+                  {}
+                robot1/head:
+                  {}
+                robot1/scan:
+                  {}
+                robot1/screen:
+                  {}
+                robot1/wit/Imu:
+                  {}
+              robot1/left_wheel:
+                {}
+              robot1/right_wheel:
+                {}
           robot2/odom:
             robot2/base_footprint:
               robot2/base_link:
@@ -96,12 +169,37 @@ Visualization Manager:
                   {}
                 robot2/head:
                   {}
-                robot2/scan_filtered:
+                robot2/scan:
                   {}
                 robot2/screen:
                   {}
                 robot2/wit/Imu:
                   {}
+              robot2/left_wheel:
+                {}
+              robot2/right_wheel:
+                {}
+          robot3/odom:
+            robot3/base_footprint:
+              robot3/base_link:
+                robot3/butt:
+                  {}
+                robot3/casterwheel_back:
+                  {}
+                robot3/casterwheel_front:
+                  {}
+                robot3/head:
+                  {}
+                robot3/scan:
+                  {}
+                robot3/screen:
+                  {}
+                robot3/wit/Imu:
+                  {}
+              robot3/left_wheel:
+                {}
+              robot3/right_wheel:
+                {}
       Update Interval: 0
       Value: true
     - Alpha: 0.5
@@ -142,6 +240,59 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        butt:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        casterwheel_back:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        casterwheel_front:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scan:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        screen:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wit/Imu:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel_1
       Robot Description: robot_description
       TF Prefix: robot1
@@ -345,6 +496,59 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        butt:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        casterwheel_back:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        casterwheel_front:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scan:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        screen:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wit/Imu:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel_3
       Robot Description: robot_description
       TF Prefix: robot3
@@ -735,6 +939,59 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        butt:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        casterwheel_back:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        casterwheel_front:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scan:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        screen:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wit/Imu:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel_2
       Robot Description: robot_description
       TF Prefix: robot2
@@ -813,16 +1070,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 20.95380210876465
+      Distance: 72.49503326416016
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 16.39358139038086
-        Y: 6.224017143249512
-        Z: -7.927988529205322
+        X: -44.542423248291016
+        Y: 22.701370239257812
+        Z: -11.25835132598877
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
