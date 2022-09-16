@@ -13,7 +13,7 @@ global_costmap:
   resolution: 0.075
 
   rolling_window: false
-  track_unknown_space: true
+  track_unknown_space: false
   
   footprint: [[.140, .390], [-1.17, 0.39], [-1.17, -0.39], [0.14, -0.39]]
 

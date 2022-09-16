@@ -22,7 +22,8 @@
 `roscore`  
 setup all robots using the laptops ros_master_uri
 ### Robot1
-
+source deliverybot_ws
+`roslaunch deliverybot_bringup bringup_multi.launch`
 
 ### Robot2
 source medical_ws  
