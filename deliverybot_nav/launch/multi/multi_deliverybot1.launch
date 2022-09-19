@@ -47,7 +47,7 @@
    <param name="odom_alpha2"               value="0.1"/>
    <param name="odom_alpha3"               value="0.1"/>
    <param name="odom_alpha4"               value="0.1"/>
-   <param name="odom_frame_id"             value="/$(arg robot1)/odom_ekf"/>
+   <param name="odom_frame_id"             value="/$(arg robot1)/odom"/>
    <param name="base_frame_id"             value="/$(arg robot1)/base_footprint"/>
 
  </node>
@@ -61,14 +61,20 @@
 
   <!-- move_base -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam file="$(find deliverybot_nav)/multi_param/multi_param1/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find deliverybot_nav)/multi_param/multi_param1/costmap_common_params.yaml" command="load" ns="local_costmap" />
+
     <rosparam file="$(find deliverybot_nav)/multi_param/multi_param1/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find deliverybot_nav)/multi_param/multi_param1/global_costmap_params.yaml" command="load" />
+
     <rosparam file="$(find deliverybot_nav)/multi_param/multi_param1/move_base_params.yaml" command="load" />
-    <rosparam file="$(find deliverybot_nav)/multi_param/multi_param1/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find deliverybot_nav)/multi_param/multi_param1/base_local_planner_params.yaml" command="load" />
+
+    <param name="base_global_planner" type="string" value="navfn/NavfnROS" />
+    <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
+
     <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
     <remap from="odom" to="$(arg odom_topic)"/>
-    <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
   </node>
   </group>
 
