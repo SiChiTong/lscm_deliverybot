@@ -22,10 +22,12 @@
 `roscore`  
 setup all robots using the laptops ros_master_uri
 ### Robot1
+use branch **robot1**   
 source deliverybot_ws  
 `roslaunch deliverybot_bringup bringup_multi.launch`
 
 ### Robot2
+use branch **robot2** <TODO>  
 source medical_ws  
 `roslaunch whbot_bringup bringup_multi.launch`
 
