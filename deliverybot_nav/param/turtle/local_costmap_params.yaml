@@ -2,10 +2,8 @@ local_costmap:
 
 #   footprint: [[.140, .390], [-1.17, 0.39], [-1.17, -0.39], [0.14, -0.39]]
   footprint_radius: 0.3
-  global_frame: map # tb3_0/odom
+  global_frame: odom # tb3_0/odom
   robot_base_frame: base_footprint
-  static_map: false
-  rolling_window: true
 
   update_frequency: 10.0
   publish_frequency: 10.0
@@ -20,7 +18,7 @@ local_costmap:
   plugins:
           # - {name: simplelayer, type: "multibot_layer_namespace::MultibotLayer"}
           # - {name: gridlayer, type: "multibot_layer_namespace::GridLayer"}
-      - {name: multibot_layerer, type: "multibot_layer_namespace::MultibotLayer"}
+    #   - {name: multibot_layerer, type: "multibot_layer_namespace::MultibotLayer"}
       - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
       - {name: inflation, type: "costmap_2d::InflationLayer"}
   obstacle_layer:

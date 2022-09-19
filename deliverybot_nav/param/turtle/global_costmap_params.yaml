@@ -19,7 +19,7 @@ global_costmap:
 
   plugins:
       - {name: static,           type: "costmap_2d::StaticLayer"}
-      - {name: multibot_layer,     type: "multibot_layer_namespace::MultibotLayer"}
+    #   - {name: multibot_layer,     type: "multibot_layer_namespace::MultibotLayer"}
       - {name: sensor,           type: "costmap_2d::ObstacleLayer"}
       - {name: inflation,        type: "costmap_2d::InflationLayer"}
   
