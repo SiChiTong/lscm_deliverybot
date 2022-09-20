@@ -27,7 +27,7 @@ source deliverybot_ws
 `roslaunch deliverybot_bringup bringup_multi.launch`
 
 ### Robot2
-use branch **robot2** <TODO>  
+use branch **robot2** "TODO"  
 source medical_ws  
 `roslaunch whbot_bringup bringup_multi.launch`
 

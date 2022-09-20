@@ -7,3 +7,6 @@
 [submodule "multibot_layer"]
 	path = multibot_layer
 	url = https://github.com/JosefGst/multibot_layer.git
+[submodule "simple_layers"]
+	path = simple_layers
+	url = https://github.com/JosefGst/multibot_heading_layer.git
