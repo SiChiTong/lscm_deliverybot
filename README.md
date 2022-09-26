@@ -19,12 +19,7 @@
 
 ## Multiple deliverybots real
 ### Laptop
-`roscore`  
-setup all robots using the laptops ros_master_uri
-### Robot1
-use branch **robot1**   
-source deliverybot_ws  
-`roslaunch deliverybot_bringup bringup_multi.launch`
+![](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/split_screen_delivery.gif)
 
 ### Robot2
 use branch **robot2** "TODO"  
@@ -32,4 +27,5 @@ source medical_ws
 `roslaunch whbot_bringup bringup_multi.launch`
 
 ### Laptop
+source deliverybot_ws  
 `roslaunch deliverybot_nav multi_nav_bringup.launch map_name:=ros_map12_mod`

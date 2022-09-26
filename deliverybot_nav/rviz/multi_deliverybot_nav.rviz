@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /TF1/Frames1
         - /TF1/Tree1
+        - /LaserScan_11
         - /Local Map_11/Polygon1
         - /Local Map_11/Costmap1/Position1
         - /Local Map_11/Costmap1/Orientation1
@@ -32,7 +33,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan_2
+    SyncSource: LaserScan_1
   - Class: rviz/Tool Properties
     Expanded:
       - /2D Pose Estimate1
@@ -57,25 +58,25 @@ Visualization Manager:
         All Enabled: false
         map:
           Value: true
-        robot2/base_footprint:
+        robot1/base_footprint:
           Value: true
-        robot2/base_link:
+        robot1/base_link:
           Value: true
-        robot2/butt:
+        robot1/butt:
           Value: true
-        robot2/casterwheel_back:
+        robot1/casterwheel_back:
           Value: true
-        robot2/casterwheel_front:
+        robot1/casterwheel_front:
           Value: true
-        robot2/head:
+        robot1/head:
           Value: true
-        robot2/odom_ekf:
+        robot1/odom:
           Value: true
-        robot2/scan:
+        robot1/scan:
           Value: true
-        robot2/screen:
+        robot1/screen:
           Value: true
-        robot2/wit/Imu:
+        robot1/wit/Imu:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -84,22 +85,22 @@ Visualization Manager:
       Show Names: true
       Tree:
         map:
-          robot2/odom_ekf:
-            robot2/base_footprint:
-              robot2/base_link:
-                robot2/butt:
+          robot1/odom:
+            robot1/base_footprint:
+              robot1/base_link:
+                robot1/butt:
                   {}
-                robot2/casterwheel_back:
+                robot1/casterwheel_back:
                   {}
-                robot2/casterwheel_front:
+                robot1/casterwheel_front:
                   {}
-                robot2/head:
+                robot1/head:
                   {}
-                robot2/scan:
+                robot1/scan:
                   {}
-                robot2/screen:
+                robot1/screen:
                   {}
-                robot2/wit/Imu:
+                robot1/wit/Imu:
                   {}
       Update Interval: 0
       Value: true
@@ -118,7 +119,7 @@ Visualization Manager:
         Y: 0
         Z: 0
       Plane: XY
-      Plane Cell Count: 20
+      Plane Cell Count: 200
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 0.699999988079071
@@ -127,7 +128,7 @@ Visualization Manager:
       Draw Behind: false
       Enabled: true
       Name: Map
-      Topic: /robot2/map
+      Topic: /robot1/map
       Unreliable: false
       Use Timestamp: false
       Value: true
@@ -170,7 +171,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.10000000149011612
       Style: Boxes
-      Topic: /robot1/scan
+      Topic: /robot1/scan_filtered
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -812,16 +813,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 19.79168701171875
+      Distance: 17.592559814453125
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 16.592514038085938
-        Y: 4.7816901206970215
-        Z: -8.568427085876465
+        X: 0.3286037743091583
+        Y: 3.765153408050537
+        Z: -11.199484825134277
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -830,7 +831,7 @@ Visualization Manager:
       Pitch: 1.1047967672348022
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.343207836151123
+      Yaw: 3.7732021808624268
     Saved: ~
 Window Geometry:
   Displays:
