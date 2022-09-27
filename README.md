@@ -19,7 +19,13 @@
 
 ## Multiple deliverybots real
 ### Laptop
+`roscore`  
 ![](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/split_screen_delivery.gif)
+
+### Robot1
+use branch **robot1**    
+source deliverybot_ws  
+`roslaunch deliverybot_bringup bringup_multi.launch`
 
 ### Robot2
 use branch **robot2** "TODO"  
