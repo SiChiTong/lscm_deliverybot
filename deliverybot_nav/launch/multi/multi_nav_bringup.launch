@@ -5,18 +5,18 @@
   <arg name="map_name" default="tko_gazebo"/>
   <arg name="map_file" default="$(find deliverybot_nav)/maps/$(arg map_name).yaml"/>
   
-  <include file="$(find deliverybot_nav)/launch/multi/multi_deliverybot1.launch">
+  <!-- <include file="$(find deliverybot_nav)/launch/multi/multi_deliverybot1.launch">
 	  <arg name="model" value="$(arg model)" />
 	  <arg name="map_file" default="$(arg map_file)" />
   </include>
   <include file="$(find deliverybot_nav)/launch/multi/multi_deliverybot2.launch">
 	  <arg name="model" value="$(arg model)" />
 	  <arg name="map_file" default="$(arg map_file)" />
-  </include>
-  <!-- <include file="$(find deliverybot_nav)/launch/multi/multi_deliverybot3.launch">
+  </include> -->
+  <include file="$(find deliverybot_nav)/launch/multi/multi_deliverybot3.launch">
 	  <arg name="model" value="$(arg model)" />
 	  <arg name="map_file" default="$(arg map_file)" />
-  </include> -->
+  </include>
 
 
   <!-- rviz -->
