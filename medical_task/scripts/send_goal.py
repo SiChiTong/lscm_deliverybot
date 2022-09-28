@@ -7,6 +7,7 @@ import actionlib
 from std_srvs.srv import Empty
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from std_msgs.msg import String
+from actionlib_msgs.msg import GoalID
 
 global dbot_deliver, change_map, el_open_door, el_close_door, el_change_floor, clear_costmap
 
@@ -57,15 +58,22 @@ def door_control(msg):
 def execute_delivery():
 	clear_costmap.call()
 	while not rospy.is_shutdown():
-		rospy.sleep(15)	
+		rospy.sleep(3)	
 		door_control("123,2,3000") # close
-		movebase_client(35.5, 37, 0) # EL out
+		movebase_client(-86, 10, 0) # EL out
 		door_control("123,1,3000") #open
-		rospy.sleep(15)
-		movebase_client(30.5, 28, 0) # EL out
+		rospy.sleep(3)
+		movebase_client(-80, 9, 0) # EL out'
+		print('cancle goal')
+		cancle_move_base()
 	return True
 
-		
+def cancle_move_base():
+	cancel_pub = rospy.Publisher("/robot1/move_base/cancel", GoalID, queue_size=2)
+	cancel_msg = GoalID()
+	cancel_msg.id = ""
+	cancel_pub.publish(cancel_msg)
+
 if __name__ == "__main__":
 	rospy.init_node("movebase_client_py")
 	clear_costmap = rospy.ServiceProxy('/robot1/move_base/clear_costmaps', Empty)
