@@ -1,12 +1,12 @@
 [submodule "sim_world"]
 	path = sim_world
-	url = https://github.com/JosefGst/sim_world.git
+	url = git@github.com:JosefGst/sim_world.git
 [submodule "urdf_basic_shapes"]
 	path = urdf_basic_shapes
-	url = https://github.com/JosefGst/urdf_basic_shapes.git
+	url = git@github.com:JosefGst/urdf_basic_shapes.git
 [submodule "multibot_layer"]
 	path = multibot_layer
-	url = https://github.com/JosefGst/multibot_layer.git
+	url = git@github.com:JosefGst/multibot_layer.git
 [submodule "simple_layers"]
 	path = simple_layers
-	url = https://github.com/JosefGst/multibot_heading_layer.git
+	url = git@github.com:JosefGst/multibot_heading_layer.git
