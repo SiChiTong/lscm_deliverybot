@@ -14,8 +14,8 @@ global_costmap:
 
    plugins:
       - {name: static_layer, type: "costmap_2d::StaticLayer"}
-      - {name: simple_layer,        type: "simple_layer_namespace::SimpleLayer"}
       - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
+      # - {name: simple_layer,        type: "simple_layer_namespace::SimpleLayer"}
       - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
 
    static_layer:

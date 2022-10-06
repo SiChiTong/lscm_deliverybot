@@ -12,7 +12,7 @@ local_costmap:
    plugins:
           # - {name: simplelayer, type: "multibot_layer_namespace::MultibotLayer"}
           # - {name: gridlayer, type: "multibot_layer_namespace::GridLayer"}
-      # - {name: multibot_layerer, type: "multibot_layer_namespace::MultibotLayer"}
+      - {name: multibot_layerer, type: "multibot_layer_namespace::MultibotLayer"}
       - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
       - {name: simple_layer,        type: "simple_layer_namespace::SimpleLayer"}
       - {name: inflation, type: "costmap_2d::InflationLayer"}

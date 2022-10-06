@@ -1,4 +1,5 @@
 # lscm_deliverybot
+`git clone --recurse-submodules git@github.com:JosefGst/lscm_deliverybot.git`
 
 ## Single deliverybot
 `roslaunch sim_world hospital.launch model:=deliverybot`  
@@ -18,7 +19,7 @@
 
 
 ## Multiple deliverybots real
-`git clone --recurse-submodules git@github.com:JosefGst/lscm_deliverybot.git`
+
 ### Laptop
 `roscore`  
 ![](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/split_screen_delivery.gif)
