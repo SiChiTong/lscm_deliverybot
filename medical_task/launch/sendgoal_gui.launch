@@ -1,7 +1,0 @@
-<launch>
-    <arg name="robot_name" default="robot1"/>
-    <group ns="$(arg robot_name)">
-        <node name="sendgoal_gui" pkg="medical_task" type="sendgoal_gui.py" output="screen"/>
-    </group>
-
-</launch>
