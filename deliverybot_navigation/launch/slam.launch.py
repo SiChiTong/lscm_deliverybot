@@ -60,13 +60,10 @@ def generate_launch_description():
         name='rviz2',
         output='screen',
         arguments=['-d', LaunchConfiguration('rvizconfig')],
-        condition=IfCondition(LaunchConfiguration('open_rviz'))
     )
    
 
     return LaunchDescription([
-        DeclareLaunchArgument(name='open_rviz', default_value='true', choices=['true', 'false'],
-                                            description='Flag to open rviz'),
         launch.actions.DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
                                             description='Absolute path to rviz config file'),
         launch.actions.DeclareLaunchArgument(name='use_sim_time', default_value='True',
