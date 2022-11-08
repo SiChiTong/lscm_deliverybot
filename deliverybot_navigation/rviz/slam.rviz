@@ -259,7 +259,7 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: System Default
-        Value: /scan
+        Value: /scan_filtered
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
@@ -382,25 +382,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 7.586878299713135
+      Distance: 1.439918041229248
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -2.5331244468688965
-        Y: -0.16123618185520172
-        Z: 2.4279932975769043
+        X: -1.8272069692611694
+        Y: 0.8489347100257874
+        Z: 2.5458390712738037
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9649991989135742
+      Pitch: 0.8099993467330933
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.2750046253204346
+      Yaw: 2.435001850128174
     Saved: ~
 Window Geometry:
   Displays:

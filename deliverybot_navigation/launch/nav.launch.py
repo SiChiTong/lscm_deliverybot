@@ -12,9 +12,19 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.conditions import IfCondition, UnlessCondition
 from launch.actions import DeclareLaunchArgument, ExecuteProcess
 
+MAP_NAME='house'
 
 def generate_launch_description():
     pkg_share = launch_ros.substitutions.FindPackageShare(package='deliverybot_navigation').find('deliverybot_navigation')
+    nav2_launch_path = PathJoinSubstitution(
+        [FindPackageShare('nav2_bringup'), 'launch', 'bringup_launch.py']
+    )
+    default_map_path = PathJoinSubstitution(
+        [FindPackageShare('deliverybot_navigation'), 'maps', f'{MAP_NAME}.yaml']
+    )
+    nav2_config_path = PathJoinSubstitution(
+        [FindPackageShare('deliverybot_navigation'), 'config', 'slam.yaml']
+    )
     slam_param_name = 'slam_params_file'
     slam_config_path = PathJoinSubstitution(
         [FindPackageShare('deliverybot_navigation'), 'config', 'slam.yaml']
@@ -25,6 +35,11 @@ def generate_launch_description():
     rviz_config_path = PathJoinSubstitution(
         [FindPackageShare('deliverybot_navigation'), 'rviz', 'slam.rviz']
     )
+    map_path = DeclareLaunchArgument(
+            name='map', 
+            default_value=default_map_path,
+            description='Navigation map path'
+        ),
 
     sim_world = IncludeLaunchDescription(
       PythonLaunchDescriptionSource([os.path.join(
@@ -54,6 +69,15 @@ def generate_launch_description():
                     "config", "laser_filter.yaml",
                 ])],
         )
+
+    nav2 = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(nav2_launch_path),
+            launch_arguments={
+                'map': LaunchConfiguration("map"),
+                'use_sim_time': LaunchConfiguration("use_sim_time"),
+                'params_file': nav2_config_path
+            }.items()
+        ),
     
     rviz_node = Node(
         package='rviz2',
@@ -73,9 +97,11 @@ def generate_launch_description():
                                             description='Absolute path to rviz config file'),
         launch.actions.DeclareLaunchArgument(name='use_sim_time', default_value='True',
                                             description='Flag to enable use_sim_time'),
+        map_path,
         sim_world,
         robot_localization_node,
         slam_toolbox,
         laser_filter,
+        # nav2,
         rviz_node
     ])
