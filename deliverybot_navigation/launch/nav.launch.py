@@ -15,16 +15,8 @@ from launch.actions import DeclareLaunchArgument, ExecuteProcess
 MAP_NAME='house'
 
 def generate_launch_description():
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     pkg_share = launch_ros.substitutions.FindPackageShare(package='deliverybot_navigation').find('deliverybot_navigation')
-    nav2_launch_path = PathJoinSubstitution(
-        [FindPackageShare('nav2_bringup'), 'launch', 'bringup_launch.py']
-    )
-    default_map_path = PathJoinSubstitution(
-        [FindPackageShare('deliverybot_navigation'), 'maps', f'{MAP_NAME}.yaml']
-    )
-    nav2_config_path = PathJoinSubstitution(
-        [FindPackageShare('deliverybot_navigation'), 'config', 'slam.yaml']
-    )
     slam_param_name = 'slam_params_file'
     slam_config_path = PathJoinSubstitution(
         [FindPackageShare('deliverybot_navigation'), 'config', 'slam.yaml']
@@ -32,14 +24,36 @@ def generate_launch_description():
     slam_launch_path = PathJoinSubstitution(
         [FindPackageShare('slam_toolbox'), 'launch', 'online_async_launch.py']
     )
+    nav2_launch_path = PathJoinSubstitution(
+        [FindPackageShare('nav2_bringup'), 'launch', 'navigation_launch.py']
+    )
     rviz_config_path = PathJoinSubstitution(
         [FindPackageShare('deliverybot_navigation'), 'rviz', 'slam.rviz']
     )
-    map_path = DeclareLaunchArgument(
-            name='map', 
-            default_value=default_map_path,
-            description='Navigation map path'
-        ),
+    nav2_config_path = PathJoinSubstitution(
+        [FindPackageShare('deliverybot_navigation'), 'config', 'nav.yaml']
+    )
+    default_map_path = PathJoinSubstitution(
+        [FindPackageShare('deliverybot_navigation'), 'maps', f'{MAP_NAME}.yaml']
+    )
+
+    map_dir = LaunchConfiguration(
+        'map',
+        default=os.path.join(
+            get_package_share_directory('deliverybot_navigation'),
+            'maps',
+            'house.yaml'))
+
+    param_file_name = 'nav.yaml'
+    param_dir = LaunchConfiguration(
+        'params_file',
+        default=os.path.join(
+            get_package_share_directory('deliverybot_navigation'),
+            'config',
+            param_file_name))
+
+    nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
+
 
     sim_world = IncludeLaunchDescription(
       PythonLaunchDescriptionSource([os.path.join(
@@ -69,16 +83,13 @@ def generate_launch_description():
                     "config", "laser_filter.yaml",
                 ])],
         )
-
     nav2 = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(nav2_launch_path),
+        PythonLaunchDescriptionSource(nav2_launch_path), 
             launch_arguments={
-                'map': LaunchConfiguration("map"),
-                'use_sim_time': LaunchConfiguration("use_sim_time"),
-                'params_file': nav2_config_path
-            }.items()
-        ),
-    
+                    'use_sim_time': LaunchConfiguration("use_sim_time"),
+                    'params_file': nav2_config_path
+                }.items()
+    )
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
@@ -97,11 +108,10 @@ def generate_launch_description():
                                             description='Absolute path to rviz config file'),
         launch.actions.DeclareLaunchArgument(name='use_sim_time', default_value='True',
                                             description='Flag to enable use_sim_time'),
-        map_path,
         sim_world,
         robot_localization_node,
-        slam_toolbox,
         laser_filter,
-        # nav2,
+        slam_toolbox, 
+        nav2,
         rviz_node
     ])
