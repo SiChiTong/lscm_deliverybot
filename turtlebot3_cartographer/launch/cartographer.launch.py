@@ -38,6 +38,12 @@ def generate_launch_description():
 
     rviz_config_dir = os.path.join(get_package_share_directory('turtlebot3_cartographer'),
                                    'rviz', 'tb3_cartographer.rviz')
+    laser_filter = LaunchConfiguration(
+        'laser_filter_params',
+        default=os.path.join(
+            get_package_share_directory('turtlebot3_navigation2'),
+            'param',
+            'laser_filter.yaml'))
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -54,11 +60,19 @@ def generate_launch_description():
             description='Use simulation (Gazebo) clock if true'),
 
         Node(
+            package="laser_filters",
+            executable="scan_to_scan_filter_chain",
+            parameters=[laser_filter],
+        ),
+
+        Node(
             package='cartographer_ros',
             executable='cartographer_node',
             name='cartographer_node',
             output='screen',
             parameters=[{'use_sim_time': use_sim_time}],
+            remappings=[
+                ('/scan', '/scan_filtered'),],
             arguments=['-configuration_directory', cartographer_config_dir,
                        '-configuration_basename', configuration_basename]),
 
