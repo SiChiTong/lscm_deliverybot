@@ -6,10 +6,13 @@ Panels:
       Expanded:
         - /Global Options1
         - /LaserScan1/Topic1
+        - /Map1
+        - /Map1/Topic1
         - /local_cotMap1
         - /local_cotMap1/Topic1
         - /local_cotMap1/Update Topic1
         - /global_costMap1
+        - /global_costMap1/Topic1
         - /global_costMap1/Update Topic1
         - /local_Path1
         - /glob_footp1
@@ -245,7 +248,7 @@ Visualization Manager:
       Name: Map
       Topic:
         Depth: 5
-        Durability Policy: Volatile
+        Durability Policy: Transient Local
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
@@ -266,7 +269,7 @@ Visualization Manager:
       Name: local_cotMap
       Topic:
         Depth: 5
-        Durability Policy: Volatile
+        Durability Policy: Transient Local
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Best Effort
@@ -287,7 +290,7 @@ Visualization Manager:
       Name: global_costMap
       Topic:
         Depth: 5
-        Durability Policy: Volatile
+        Durability Policy: Transient Local
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
