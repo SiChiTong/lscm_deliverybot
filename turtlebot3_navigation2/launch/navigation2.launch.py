@@ -36,6 +36,13 @@ def generate_launch_description():
             'map',
             'map.yaml'))
 
+    laser_filter = LaunchConfiguration(
+        'laser_filter_params',
+        default=os.path.join(
+            get_package_share_directory('turtlebot3_navigation2'),
+            'param',
+            'laser_filter.yaml'))
+
     param_file_name = TURTLEBOT3_MODEL + '.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
@@ -47,9 +54,9 @@ def generate_launch_description():
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
 
     rviz_config_dir = os.path.join(
-        get_package_share_directory('nav2_bringup'),
+        get_package_share_directory('turtlebot3_navigation2'),
         'rviz',
-        'nav2_default_view.rviz')
+        'nav.rviz')
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -66,6 +73,12 @@ def generate_launch_description():
             'use_sim_time',
             default_value='false',
             description='Use simulation (Gazebo) clock if true'),
+
+        Node(
+            package="laser_filters",
+            executable="scan_to_scan_filter_chain",
+            parameters=[laser_filter],
+        ),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
