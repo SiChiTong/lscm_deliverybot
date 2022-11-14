@@ -35,7 +35,7 @@ def generate_launch_description():
             get_package_share_directory('turtlebot3_navigation2'),
             'map',
             'lab.yaml'))
-
+    
     laser_filter = LaunchConfiguration(
         'laser_filter_params',
         default=os.path.join(
@@ -78,6 +78,14 @@ def generate_launch_description():
             package="laser_filters",
             executable="scan_to_scan_filter_chain",
             parameters=[laser_filter],
+        ),
+
+        Node(
+            package='robot_localization',
+            executable='ekf_node',
+            name='ekf_filter_node',
+            output='screen',
+            parameters=[os.path.join(get_package_share_directory('turtlebot3_navigation2'), 'param/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
         ),
 
         IncludeLaunchDescription(

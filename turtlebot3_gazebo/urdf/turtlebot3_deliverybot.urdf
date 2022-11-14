@@ -336,7 +336,7 @@
       <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
       <!-- <odometry_source>world</odometry_source> -->
       <!-- output -->
-      <publish_odom>true</publish_odom>
+      <publish_odom>false</publish_odom>
       <publish_odom_tf>False</publish_odom_tf>
       <publish_wheel_tf>false</publish_wheel_tf>
       <!-- <publish_wheel_joint_state>true</publish_wheel_joint_state> -->
