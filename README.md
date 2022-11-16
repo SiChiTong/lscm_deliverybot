@@ -9,6 +9,10 @@
 ![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_deliverybot.png)  
 
 ## Single deliverybot real
+### Robot
+`ros2 launch deliverybot_bringup bringup.launch.py`
+### Laptop
+`ros2 launch turtlebot3_navigation2 navigation2.launch.py`
 ### Services
 disable the Motors  
 `ros2 service call disable_Motor std_srvs/srv/Trigger`
