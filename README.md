@@ -15,7 +15,9 @@
 `ros2 launch turtlebot3_navigation2 navigation2.launch.py`
 ### Services
 disable the Motors  
-`ros2 service call disable_Motor std_srvs/srv/Trigger`
+`ros2 service call disable_Motor std_srvs/srv/Trigger`  
+enable the Motors  
+`ros2 service call enable_Motor std_srvs/srv/Trigger`
 
 ## Multiple deliverybots Simulation
 `roslaunch sim_world multi_hospital.launch`  
