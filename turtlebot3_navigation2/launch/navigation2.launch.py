@@ -77,8 +77,24 @@ def generate_launch_description():
         Node(
             package="laser_filters",
             executable="scan_to_scan_filter_chain",
-            parameters=[laser_filter],
+            # name="laser_filter_front",
+            parameters=[laser_filter, {'use_sim_time': LaunchConfiguration('use_sim_time')}],
+            # remappings=[
+                # ('/scan', '/scan_front'),
+                # ('/scan_filtered', '/scan_filtered_front'),
+            # ]
         ),
+
+        # Node(
+        #     package="laser_filters",
+        #     executable="scan_to_scan_filter_chain",
+        #     namespace="back",
+        #     parameters=[laser_filter, {'use_sim_time': LaunchConfiguration('use_sim_time')}],
+        #     remappings=[
+        #         ('/scan', '/scan_back'),
+        #         ('/scan_filtered', '/scan_filtered_back'),
+        #     ]
+        # ),
 
         Node(
             package='robot_localization',

@@ -29,13 +29,15 @@ def generate_launch_description():
     TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    urdf_file_name = 'turtlebot3_' + TURTLEBOT3_MODEL + '.urdf'
+    urdf_file_name = TURTLEBOT3_MODEL + '.urdf'
+    model_folder = TURTLEBOT3_MODEL
 
     print('urdf_file_name : {}'.format(urdf_file_name))
 
     urdf_path = os.path.join(
-        get_package_share_directory('turtlebot3_gazebo'),
-        'urdf',
+        get_package_share_directory('urdf_basic_shapes'),
+        'examples',
+        model_folder,
         urdf_file_name)
 
     with open(urdf_path, 'r') as infp:

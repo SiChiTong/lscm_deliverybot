@@ -78,6 +78,10 @@ def generate_launch_description():
             package="laser_filters",
             executable="scan_to_scan_filter_chain",
             parameters=[laser_filter],
+            remappings=[
+                ('/scan', '/scan_front'),
+                ('/scan_filtered', '/scan_filtered_front'),
+            ]
         ),
 
 

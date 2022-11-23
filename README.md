@@ -2,10 +2,10 @@
 `git clone --recurse-submodules git@github.com:JosefGst/lscm_deliverybot.git`
 
 ## Single deliverybot sim
-`roslaunch sim_world hospital.launch model:=deliverybot`  
+`ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py`  
 ![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_hospital.png)  
 
-`roslaunch deliverybot_nav navigation.launch model:=deliverybot`  
+`ros2 launch turtlebot3_navigation2 navigation2.launch.py`  
 ![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_deliverybot.png)  
 
 ## Single deliverybot real
@@ -15,9 +15,9 @@
 `ros2 launch turtlebot3_navigation2 navigation2.launch.py`
 ### Services
 disable the Motors  
-`ros2 service call disable_Motor std_srvs/srv/Trigger`  
+`ros2 service call /disable_motor std_srvs/srv/Trigger`  
 enable the Motors  
-`ros2 service call enable_Motor std_srvs/srv/Trigger`
+`ros2 service call /enable_motor std_srvs/srv/Trigger`
 
 ## Multiple deliverybots Simulation
 `roslaunch sim_world multi_hospital.launch`  
