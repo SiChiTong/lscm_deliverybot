@@ -5,7 +5,8 @@
 `ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py`  
 ![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_hospital.png)  
 
-`ros2 launch turtlebot3_navigation2 navigation2.launch.py`  
+run in workspace  
+`ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/house.yaml use_sim_time:=true`  
 ![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_deliverybot.png)  
 
 ## Single deliverybot real
