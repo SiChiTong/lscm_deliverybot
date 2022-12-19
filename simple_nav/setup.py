@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'demo_inspection = simple_nav.demo_inspection:main',
+            'demo_security = simple_nav.demo_security:main',
         ],
     },
 )

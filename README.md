@@ -10,7 +10,8 @@ run in workspace
 ![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_deliverybot.png) 
 
 run simple commander  
-`ros2 run simple_nav demo_inspection`
+`ros2 run simple_nav demo_inspection`  
+` ros2 run simple_nav demo_security` **TODO fix bug**
 
 ## Single deliverybot real
 ### Robot
