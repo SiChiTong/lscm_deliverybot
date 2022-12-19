@@ -7,7 +7,10 @@
 
 run in workspace  
 `ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/house.yaml use_sim_time:=true`  
-![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_deliverybot.png)  
+![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_deliverybot.png) 
+
+run simple commander  
+`ros2 run simple_nav demo_inspection`
 
 ## Single deliverybot real
 ### Robot
