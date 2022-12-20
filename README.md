@@ -12,7 +12,8 @@ run in workspace
 run simple commander  
 `ros2 run simple_nav demo_inspection`  
 `ros2 run simple_nav demo_security` **TODO fix bug**
-
+GUI  
+`ros2 run simple_nav demo_gui`
 ## Single deliverybot real
 ### Robot
 `ros2 launch deliverybot_bringup bringup.launch.py`

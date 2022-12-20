@@ -1,5 +1,6 @@
 #!/usr/bin/env python2
 from tkinter import *
+import customtkinter
 from threading import *
 
 from copy import deepcopy
@@ -10,7 +11,11 @@ import rclpy
 import tf_transformations
 from time import sleep
 
-root = Tk()
+
+customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
+customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
+root = customtkinter.CTk()
+
 rclpy.init()
 navigator = BasicNavigator()
 
@@ -46,8 +51,8 @@ def main():
     root.configure(background="white")
 
     # # Adding widgets to the root window
-    Label(root, text = 'LSCM Deliverybot',bg="white", font =(
-    'Verdana', 32)).pack(side = TOP, pady = 10)
+    label = customtkinter.CTkLabel(master=root, text="LSCM Deliverybot", font =('Default', 100))
+    label.pack(side = TOP, pady = 80)
 
     # Creating a photoimage object to use image
     photo = PhotoImage(file = "/home/u/ros2/deliverybot2_ws/src/lscm_deliverybot/simple_nav/images/startnext.png")
@@ -55,9 +60,21 @@ def main():
 
 
     # Start Button
-    Button(root, image=photoimage,command=threading, background="white").place(relx=.5, rely=.5,anchor= CENTER)
+    # customtkinter.CTkButton(root, image=photoimage,command=threading, background="white").place(relx=.5, rely=.5,anchor= CENTER)
+    start_button = customtkinter.CTkButton(width= 800, master=root, text="START", command=threading, font=('Default', 80))
+    start_button.pack(padx=20, pady=20)
+
+    kitchen_button = customtkinter.CTkButton(width= 800, master=root, text="KITCHEN", command=threading, font=('Default', 80))
+    kitchen_button.pack(padx=20, pady=20)
+
+    meeting_button = customtkinter.CTkButton(width= 800, master=root, text="MEETING ROOM", command=threading, font=('Default', 80))
+    meeting_button.pack(padx=20, pady=20)
+
+
     # Exit Button
-    Button(root, text="Exit", font= "none 32",command=close_window, background="white").pack(side = BOTTOM)
+    # Button(root, text="Exit", font= "none 32",command=close_window, background="white").pack(side = BOTTOM)
+    start_button = customtkinter.CTkButton(master=root, text="Exit/STOP", command=close_window, font=('Default', 60))
+    start_button.pack(padx=20, pady=20,side = BOTTOM)
 
     root.attributes('-fullscreen',True)
     root.mainloop()
