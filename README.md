@@ -11,7 +11,7 @@ run in workspace
 
 run simple commander  
 `ros2 run simple_nav demo_inspection`  
-` ros2 run simple_nav demo_security` **TODO fix bug**
+`ros2 run simple_nav demo_security` **TODO fix bug**
 
 ## Single deliverybot real
 ### Robot
