@@ -11,7 +11,7 @@ run in workspace
 
 run simple commander  
 `ros2 run simple_nav demo_inspection`  
-`ros2 run simple_nav demo_security` **TODO fix bug**
+`ros2 run simple_nav demo_security`
 GUI  
 `ros2 run simple_nav demo_gui`
 ## Single deliverybot real
@@ -25,7 +25,7 @@ disable the Motors
 enable the Motors  
 `ros2 service call /enable_motor std_srvs/srv/Trigger`
 
-## Multiple deliverybots Simulation
+<!-- ## Multiple deliverybots Simulation
 `roslaunch sim_world multi_hospital.launch`  
 ![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/multi_hospital.png)
 
@@ -67,4 +67,4 @@ source deliverybot_ws
 `roslaunch deliverybot_nav multi_nav_bringup.launch map_name:=ros_map12_mod`
 
 ## Resources
-[R2D2 sounds](https://www.soundboard.com/sb/r2d2_r2_d2_sounds)
+[R2D2 sounds](https://www.soundboard.com/sb/r2d2_r2_d2_sounds) -->
