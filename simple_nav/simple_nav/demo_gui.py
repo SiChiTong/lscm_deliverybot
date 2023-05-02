@@ -35,7 +35,7 @@ def main():
     initial_pose.header.stamp = navigator.get_clock().now().to_msg()
     initial_pose.pose.position.x = -1.2
     initial_pose.pose.position.y = 1.25
-    q = tf_transformations.quaternion_from_euler(0, 0, 0.6)
+    q = tf_transformations.quaternion_from_euler(0, 0, 0.3)
     initial_pose.pose.orientation.z = q[2]
     initial_pose.pose.orientation.w = q[3]
     navigator.setInitialPose(initial_pose)
@@ -73,14 +73,15 @@ def main():
 
     # Exit Button
     # Button(root, text="Exit", font= "none 32",command=close_window, background="white").pack(side = BOTTOM)
-    exit_button = customtkinter.CTkButton(master=root, text="Exit/STOP", command=close_window, font=('Default', 60))
+    exit_button = customtkinter.CTkButton(master=root, text="Exit/STOP", command=lambda: close_window("exiting"), font=('Default', 60))
     exit_button.pack(padx=20, pady=20,side = BOTTOM)
 
     root.attributes('-fullscreen',True)
     root.mainloop()
 
-def close_window():
+def close_window(string):
     navigator.cancelTask()
+    print(string)
     root.destroy()
     exit()
 
