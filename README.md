@@ -18,10 +18,16 @@ GUI
     
 ![gui](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/gui.png) 
 ## Single deliverybot real
+
+### Build
+Because gazebo isn't installed on the robot:
+
+    colcon build --packages-ignore turtlebot3_gazebo
+
 ### Robot
 
-    ros2 launch deliverybot_bringup bringup.launch.py`
-    ros2 launch turtlebot3_navigation2 navigation2.launch.py`
+    ros2 launch deliverybot_bringup bringup.launch.py
+    ros2 launch turtlebot3_navigation2 navigation2.launch.py
     ros2 run simple_nav demo_gui
     
 ### Laptop
