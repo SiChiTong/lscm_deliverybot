@@ -15,12 +15,15 @@ run simple commander in simulator
 GUI  
     
     ros2 run simple_nav demo_gui_sim
-    ros2 run simple_nav demo_gui
+    
 ![gui](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/gui.png) 
 ## Single deliverybot real
 ### Robot
-`ros2 launch deliverybot_bringup bringup.launch.py`
-`ros2 launch turtlebot3_navigation2 navigation2.launch.py`
+
+    ros2 launch deliverybot_bringup bringup.launch.py`
+    ros2 launch turtlebot3_navigation2 navigation2.launch.py`
+    ros2 run simple_nav demo_gui
+    
 ### Laptop
 ### Services
 disable the Motors  
