@@ -3,22 +3,25 @@
 
 ## Single deliverybot sim
 `ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py`  
-![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_hospital.png)  
+![simulation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/sim.png)  
 
 run in workspace  
 `ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/house.yaml use_sim_time:=true`  
-![alt text](https://github.com/JosefGst/lscm_deliverybot/blob/main/images/single_deliverybot.png) 
+![navigation](hhttps://github.com/JosefGst/lscm_deliverybot/blob/humble/images/nav.png) 
 
-run simple commander  
+run simple commander in simulator 
 `ros2 run simple_nav demo_inspection`  
 `ros2 run simple_nav demo_security`
 GUI  
-`ros2 run simple_nav demo_gui`
+    
+    ros2 run simple_nav demo_gui_sim
+    ros2 run simple_nav demo_gui
+![gui](hhttps://github.com/JosefGst/lscm_deliverybot/blob/humble/images/gui.png) 
 ## Single deliverybot real
 ### Robot
 `ros2 launch deliverybot_bringup bringup.launch.py`
-### Laptop
 `ros2 launch turtlebot3_navigation2 navigation2.launch.py`
+### Laptop
 ### Services
 disable the Motors  
 `ros2 service call /disable_motor std_srvs/srv/Trigger`  
