@@ -1,8 +1,0 @@
-[submodule "sim_world"]
-	path = sim_world
-	url = git@github.com:JosefGst/sim_world.git
-	branch = humble-devel
-[submodule "urdf_basic_shapes"]
-	path = urdf_basic_shapes
-	url = git@github.com:JosefGst/urdf_basic_shapes.git
-	branch = humble-devel
