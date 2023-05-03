@@ -11,6 +11,9 @@ import rclpy
 import tf_transformations
 from time import sleep
 
+sofa = [3.0, -5.0, 1.57]
+kitchen = [14.0, 1.0 , 3.14]
+meeting = [4.0, -2.0 ,0.3]
 
 customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
 customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
@@ -21,11 +24,8 @@ navigator = BasicNavigator()
 
 initial_pose = PoseStamped()
 
-def threading():
-    # Call work function
-    # t1=Thread(target=send_goal1)
-    t0=Thread(target=task)
-    # t1.start()
+def threading(x,y,th):
+    t0=Thread(target=lambda: task(x,y,th))
     t0.start()
 
 def main():
@@ -33,9 +33,9 @@ def main():
     
     initial_pose.header.frame_id = 'map'
     initial_pose.header.stamp = navigator.get_clock().now().to_msg()
-    initial_pose.pose.position.x = -1.2
-    initial_pose.pose.position.y = 1.25
-    q = tf_transformations.quaternion_from_euler(0, 0, 0.3)
+    initial_pose.pose.position.x = 2.0
+    initial_pose.pose.position.y = 2.0
+    q = tf_transformations.quaternion_from_euler(0, 0, 0.0)
     initial_pose.pose.orientation.z = q[2]
     initial_pose.pose.orientation.w = q[3]
     navigator.setInitialPose(initial_pose)
@@ -54,20 +54,15 @@ def main():
     label = customtkinter.CTkLabel(master=root, text="LSCM Deliverybot", font =('Default', 100))
     label.pack(side = TOP, pady = 80)
 
-    # Creating a photoimage object to use image
-    photo = PhotoImage(file = "/home/u/ros2/deliverybot2_ws/src/lscm_deliverybot/simple_nav/images/startnext.png")
-    photoimage = photo.subsample(1,1)
-
 
     # Start Button
-    # customtkinter.CTkButton(root, image=photoimage,command=threading, background="white").place(relx=.5, rely=.5,anchor= CENTER)
-    sofa_button = customtkinter.CTkButton(width= 800, master=root, text="SOFA", command=threading, font=('Default', 80))
+    sofa_button = customtkinter.CTkButton(width= 800, master=root, text="SOFA", command=lambda: threading(sofa[0],sofa[1], sofa[2]), font=('Default', 80))
     sofa_button.pack(padx=20, pady=20)
 
-    kitchen_button = customtkinter.CTkButton(width= 800, master=root, text="KITCHEN", command=threading, font=('Default', 80))
+    kitchen_button = customtkinter.CTkButton(width= 800, master=root, text="KITCHEN", command=lambda: threading(kitchen[0],kitchen[1],kitchen[2]), font=('Default', 80))
     kitchen_button.pack(padx=20, pady=20)
 
-    meeting_button = customtkinter.CTkButton(width= 800, master=root, text="MEETING ROOM", command=threading, font=('Default', 80))
+    meeting_button = customtkinter.CTkButton(width= 800, master=root, text="MEETING ROOM", command=lambda: threading(meeting[0],meeting[1],meeting[2]), font=('Default', 80))
     meeting_button.pack(padx=20, pady=20)
 
 
@@ -85,14 +80,14 @@ def close_window(string):
     root.destroy()
     exit()
 
-def task():
+def task(x,y,th):
     navigator.clearLocalCostmap()
     goal = PoseStamped()
     goal.header.frame_id = 'map'
     goal.header.stamp = navigator.get_clock().now().to_msg()
-    goal.pose.position.x = -1.3
-    goal.pose.position.y = 4.0
-    q = tf_transformations.quaternion_from_euler(0, 0, 0.6)
+    goal.pose.position.x = x
+    goal.pose.position.y = y
+    q = tf_transformations.quaternion_from_euler(0, 0, th)
     goal.pose.orientation.z = q[2]
     goal.pose.orientation.w = q[3]
     navigator.goToPose(goal)
