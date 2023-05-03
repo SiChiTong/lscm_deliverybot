@@ -1,5 +1,8 @@
 # lscm_deliverybot
-`git clone --recurse-submodules git@github.com:JosefGst/lscm_deliverybot.git`
+## install
+
+    cd lscm_deliverybot
+    vcs import .. < my.repos
 
 # Single deliverybot sim
 `ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py`  
