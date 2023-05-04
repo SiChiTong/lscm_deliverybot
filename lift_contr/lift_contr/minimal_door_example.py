@@ -11,10 +11,6 @@ address = "F5:EC:6E:A0:BF:CD"
 MODEL_NBR_UUID = "34860001-E699-4650-ae12-f1f3c8bf9ad9"
 
 
-def lift_task(self, msg):
-        loop = asyncio.new_event_loop()
-        loop.run_until_complete(self.lift_op(msg))
-
 async def main(address):
     client = BleakClient(address)
     try:
