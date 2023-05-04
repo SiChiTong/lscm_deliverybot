@@ -4,7 +4,7 @@ from bleak import BleakClient
 
 # DOOR
 TKO_DOOR_wanted_name = "TKO_DOOR"
-address_door = "E3:59:A8:08:10:F7" #"EE:11:65:68:71:64"
+address_door = "E3:59:A8:08:10:F7"
 MODEL_NBR_UUID_door = "34860001-e699-4650-ae12-f1f3c8bf9ad9"
 
 # LIFT_DOOR

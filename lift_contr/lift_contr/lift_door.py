@@ -5,15 +5,6 @@ from rclpy.node import Node
 
 from lift_contr.submodules import bt_door_contr
 
-# TKO_DOOR
-address_door = "E3:59:A8:08:10:F7"
-MODEL_NBR_UUID_door = "34860001-e699-4650-ae12-f1f3c8bf9ad9"
-
-# LIFT_DOOR
-address_lift = "F5:EC:6E:A0:BF:CD"
-MODEL_NBR_UUID_lift = "34860001-E699-4650-ae12-f1f3c8bf9ad9"
-
-
 class DoorService(Node, bt_door_contr.BtDoor):
 
     def __init__(self):
@@ -21,9 +12,12 @@ class DoorService(Node, bt_door_contr.BtDoor):
 
         self.declare_parameter('address', rclpy.Parameter.Type.STRING)
         self.declare_parameter('uuid', rclpy.Parameter.Type.STRING)
+        # get parameters
+        address = self.get_parameter('address').value
+        uuid = self.get_parameter('uuid').value
 
         self.srv = self.create_service(SetBool, 'door_control', self.door_cb)
-        self.lift = bt_door_contr.BtDoor(address_lift,MODEL_NBR_UUID_lift)
+        self.lift = bt_door_contr.BtDoor(address,uuid)  
 
     def door_cb(self, request, response):
         self.get_logger().info('Incoming request\nbool: %d' % (request.data))
