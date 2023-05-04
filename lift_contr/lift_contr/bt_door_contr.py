@@ -1,6 +1,5 @@
 import asyncio
 from bleak import BleakClient
-from time import sleep
 
 
 # DOOR
@@ -12,7 +11,7 @@ MODEL_NBR_UUID_door = "34860001-e699-4650-ae12-f1f3c8bf9ad9"
 address_lift = "F5:EC:6E:A0:BF:CD"
 MODEL_NBR_UUID_lift = "34860001-E699-4650-ae12-f1f3c8bf9ad9"
 
-class BtDoor:
+class BtDoor():
     def __init__(self, adr, UUID):
         self.address = adr
         self.uuid = UUID
@@ -32,15 +31,11 @@ class BtDoor:
         finally:
             await client.disconnect()
 
+    def control(self, cmd):
+        loop = asyncio.new_event_loop()
+        loop.run_until_complete(self.door(cmd))
+
 if __name__ == "__main__":
     lift = BtDoor(address_lift,MODEL_NBR_UUID_lift)
-    asyncio.run(lift.door(lift.OPEN))
-    print("open")
-    asyncio.run(lift.door(lift.CLOSE))
-    sleep(1)
-    print("close")
+    lift.control(lift.OPEN)
     
-    # asyncio.run(door(OPEN_DOOR,address_lift, MODEL_NBR_UUID_lift))
-    # print("finished")
-    # asyncio.run(door(CLOSE_DOOR,address_lift, MODEL_NBR_UUID_lift))
-    # print("finished")

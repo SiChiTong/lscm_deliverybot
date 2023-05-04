@@ -1,37 +1,52 @@
+from std_srvs.srv import SetBool
+
 import rclpy
 from rclpy.node import Node
 
-from std_msgs.msg import String
+import bt_door_contr
+
+# TKO_DOOR
+address_door = "E3:59:A8:08:10:F7"
+MODEL_NBR_UUID_door = "34860001-e699-4650-ae12-f1f3c8bf9ad9"
+
+# LIFT_DOOR
+address_lift = "F5:EC:6E:A0:BF:CD"
+MODEL_NBR_UUID_lift = "34860001-E699-4650-ae12-f1f3c8bf9ad9"
 
 
-class MinimalPublisher(Node):
+class DoorService(Node, bt_door_contr.BtDoor):
 
     def __init__(self):
-        super().__init__('minimal_publisher')
-        self.publisher_ = self.create_publisher(String, 'topic', 10)
-        timer_period = 0.5  # seconds
-        self.timer = self.create_timer(timer_period, self.timer_callback)
-        self.i = 0
+        super().__init__('door_service')
+        self.srv = self.create_service(SetBool, 'door_control', self.door_cb)
+        self.lift = bt_door_contr.BtDoor(address_lift,MODEL_NBR_UUID_lift)
 
-    def timer_callback(self):
-        msg = String()
-        msg.data = 'Hello World: %d' % self.i
-        self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
-        self.i += 1
+    def door_cb(self, request, response):
+        self.get_logger().info('Incoming request\nbool: %d' % (request.data))
+        if request.data == self.lift.CLOSE:
+            self.lift.control(self.lift.CLOSE)
+            response.message= 'door closed'
+            response.success = True
+            return response
+        elif request.data == self.lift.OPEN:
+            self.lift.control(self.lift.OPEN)
+            response.message= 'door opened'
+            response.success = True
+            return response
+        else:
+            response.success = False
+            return response
+        response.success = False
+        return response
 
 
 def main(args=None):
     rclpy.init(args=args)
 
-    minimal_publisher = MinimalPublisher()
+    door_service = DoorService()
 
-    rclpy.spin(minimal_publisher)
+    rclpy.spin(door_service)
 
-    # Destroy the node explicitly
-    # (optional - otherwise it will be done automatically
-    # when the garbage collector destroys the node object)
-    minimal_publisher.destroy_node()
     rclpy.shutdown()
 
 
