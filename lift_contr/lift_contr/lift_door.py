@@ -3,7 +3,7 @@ from std_srvs.srv import SetBool
 import rclpy
 from rclpy.node import Node
 
-import bt_door_contr
+from lift_contr.submodules import bt_door_contr
 
 # TKO_DOOR
 address_door = "E3:59:A8:08:10:F7"
@@ -18,6 +18,10 @@ class DoorService(Node, bt_door_contr.BtDoor):
 
     def __init__(self):
         super().__init__('door_service')
+
+        self.declare_parameter('address', rclpy.Parameter.Type.STRING)
+        self.declare_parameter('uuid', rclpy.Parameter.Type.STRING)
+
         self.srv = self.create_service(SetBool, 'door_control', self.door_cb)
         self.lift = bt_door_contr.BtDoor(address_lift,MODEL_NBR_UUID_lift)
 
@@ -42,11 +46,8 @@ class DoorService(Node, bt_door_contr.BtDoor):
 
 def main(args=None):
     rclpy.init(args=args)
-
     door_service = DoorService()
-
     rclpy.spin(door_service)
-
     rclpy.shutdown()
 
 
