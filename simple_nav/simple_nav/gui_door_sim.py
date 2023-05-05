@@ -150,6 +150,8 @@ def task(x, y, th):
 
     while not navigator.isTaskComplete():
         pass
+    response = door_client.send_request(int(CLOSE))
+    print(response.message)
 
 
 if __name__ == "__main__":

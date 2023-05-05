@@ -24,7 +24,7 @@ setup(
             "demo_security = simple_nav.demo_security:main",
             "demo_gui = simple_nav.demo_gui:main",
             "demo_gui_sim = simple_nav.demo_gui_sim:main",
-            "demo_gui_door_sim = simple_nav.demo_gui_door_sim:main",
+            "gui_door_sim = simple_nav.gui_door_sim:main",
         ],
     },
 )
