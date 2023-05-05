@@ -12,7 +12,6 @@
 
 ![simulation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/sim.png)
 
-    ros2 launch deliverybot_bringup bringup.launch.py
     ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=true
     tel
 
