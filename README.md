@@ -8,6 +8,7 @@
 
 ## Mapping
 
+    ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py  
     ros2 launch deliverybot_bringup bringup.launch.py
     ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=true
     tel
@@ -16,7 +17,7 @@
 
     ros2 run nav2_map_server map_saver_cli -f ~/map
 
-### navigation
+## Navigation
 `ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py`  
 ![simulation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/sim.png)  
 
@@ -25,9 +26,11 @@ run in workspace
 ![navigation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/nav.png)  
 ![sim_graph](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/sim_graph.png)
 
-run simple commander in simulator 
-`ros2 run simple_nav demo_inspection`  
-`ros2 run simple_nav demo_security`
+run simple commander in simulator
+
+    ros2 run simple_nav demo_inspection  
+    ros2 run simple_nav demo_security
+    
 ## GUI  
     
     ros2 run simple_nav demo_gui_sim
