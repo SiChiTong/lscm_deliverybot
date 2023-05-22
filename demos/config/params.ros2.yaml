@@ -1,0 +1,12 @@
+mqtt_client:
+  ros__parameters:
+    broker:
+      host: localhost
+      port: 1883
+    bridge:
+      ros2mqtt:
+        ros_topic: /amcl_pose
+        mqtt_topic: location
+      mqtt2ros:
+        mqtt_topic: location
+        ros_topic: /pong/ros

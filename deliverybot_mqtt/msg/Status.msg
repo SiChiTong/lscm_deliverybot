@@ -1,0 +1,5 @@
+int16 id
+string status
+int8 battery_remaining
+int16 from_location_id
+int16 to_location_id
