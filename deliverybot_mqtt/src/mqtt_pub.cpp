@@ -16,7 +16,7 @@ class MqttNode : public rclcpp::Node
 {
 public:
     MqttNode()
-        : Node("minimal_subscriber")
+        : Node("mqtt_node")
     {
         status_pub_ = this->create_publisher<deliverybot_mqtt::msg::Status>("robots/status", 10);
         location_pub_ = this->create_publisher<deliverybot_mqtt::msg::Location>("robots/location", 10);
