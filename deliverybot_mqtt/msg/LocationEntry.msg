@@ -1,3 +1,3 @@
 int16 id
 string name
-geometry_msgs/Pose position
+geometry_msgs/Pose pose

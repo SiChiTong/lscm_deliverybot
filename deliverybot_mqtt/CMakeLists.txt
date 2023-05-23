@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(mqtt_client REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(deliverybot_mqtt REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
@@ -24,7 +25,12 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   rosidl_default_generators
  )
 
-# ament_export_dependencies(rosidl_default_runtime)
+add_executable(mqtt_pub src/mqtt_pub.cpp)
+ament_target_dependencies(mqtt_pub rclcpp geometry_msgs deliverybot_mqtt)
+
+install(TARGETS
+  mqtt_pub
+  DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
