@@ -1,4 +1,4 @@
-mqtt_client:
+mqtt_configuration:
   ros__parameters:
     broker:
       host: localhost
@@ -7,10 +7,32 @@ mqtt_client:
       ros2mqtt:
         ros_topic: /robots/configuration
         mqtt_topic: robots/configuration
+      mqtt2ros:
+        mqtt_topic: robots/configuration
+        ros_topic: /test/configuration
+
+mqtt_status:
+  ros__parameters:
+    broker:
+      host: localhost
+      port: 1883
+    bridge:
+      ros2mqtt:
         ros_topic: /robots/id_1/status
         mqtt_topic: robots/id_1/status
+      mqtt2ros:
+        mqtt_topic: robots/id_1/status
+        ros_topic: /test/id_1/status
+
+mqtt_location:
+  ros__parameters:
+    broker:
+      host: localhost
+      port: 1883
+    bridge:
+      ros2mqtt:
         ros_topic: /robots/id_1/location
         mqtt_topic: robots/id_1/location
-      mqtt2ros: # for testing only
-        mqtt_topic: robots/id_1/status
-        ros_topic: /pong/ros
+      mqtt2ros:
+        mqtt_topic: robots/id_1/location
+        ros_topic: /test/id_1/location
