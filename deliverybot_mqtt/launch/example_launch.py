@@ -8,4 +8,7 @@ def generate_launch_description():
         launch_ros.actions.Node(name='mqtt_node', package='deliverybot_mqtt', executable='mqtt_pub',
                                 parameters=[
                                     str(get_package_share_path('deliverybot_mqtt') / 'config/example.yaml')]),
+        launch_ros.actions.Node(name='mqtt_client', package='mqtt_client', executable='mqtt_client',
+                                parameters=[
+                                    str(get_package_share_path('deliverybot_mqtt') / 'config/params.ros2.yaml')]),
     ])
