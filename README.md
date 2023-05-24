@@ -20,7 +20,7 @@
     ros2 run nav2_map_server map_saver_cli -f ~/map
 
 ## Navigation
-`ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py`  
+    ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py 
   
 run in workspace  
 

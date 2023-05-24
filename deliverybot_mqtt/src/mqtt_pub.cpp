@@ -19,6 +19,7 @@ public:
     MqttNode()
         : Node("mqtt_node")
     {
+        // declare params
         this->declare_parameter("map", rclcpp::PARAMETER_STRING);
         this->declare_parameter("robot_id", rclcpp::PARAMETER_INTEGER);
         this->declare_parameter("num_of_locations", rclcpp::PARAMETER_INTEGER);
@@ -29,8 +30,9 @@ public:
         this->declare_parameter("location.orientation_z", rclcpp::PARAMETER_DOUBLE_ARRAY);
         this->declare_parameter("location.orientation_w", rclcpp::PARAMETER_DOUBLE_ARRAY);
 
-        status_pub_ = this->create_publisher<deliverybot_mqtt::msg::Status>("robots/status", 10);
-        location_pub_ = this->create_publisher<deliverybot_mqtt::msg::Location>("robots/location", 10);
+        rclcpp::Parameter robot_id = this->get_parameter("robot_id");
+        status_pub_ = this->create_publisher<deliverybot_mqtt::msg::Status>("robots/id_" + std::to_string(robot_id.as_int()) + "/status", 10);
+        location_pub_ = this->create_publisher<deliverybot_mqtt::msg::Location>("robots/id_" + std::to_string(robot_id.as_int()) + "/location", 10);
         config_pub_ = this->create_publisher<deliverybot_mqtt::msg::Configuration>("robots/configuration", 10);
 
         timer_ = this->create_wall_timer(1000ms, std::bind(&MqttNode::timer_callback, this));
@@ -78,7 +80,7 @@ private:
 
         // Status publisher
         auto status = deliverybot_mqtt::msg::Status();
-        status.id = robot_id.as_int();
+        status.robot_id = robot_id.as_int();
         status.status = "PROCESSING";
         status.battery_remaining = 56;
         status.from_location_id = 1;

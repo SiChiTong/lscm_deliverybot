@@ -19,20 +19,20 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Location.msg"
   "msg/Status.msg"
   DEPENDENCIES 
-  builtin_interfaces 
   geometry_msgs 
   std_msgs 
   rosidl_default_generators
- )
+)
 
 add_executable(mqtt_pub src/mqtt_pub.cpp)
 ament_target_dependencies(mqtt_pub rclcpp geometry_msgs deliverybot_mqtt)
 
 install(TARGETS
   mqtt_pub
-  DESTINATION lib/${PROJECT_NAME})
+  DESTINATION lib/${PROJECT_NAME}
+)
 
-  install(DIRECTORY
+install(DIRECTORY
   launch
   config
   DESTINATION share/${PROJECT_NAME}/

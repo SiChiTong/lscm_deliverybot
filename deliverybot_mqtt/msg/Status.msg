@@ -1,4 +1,4 @@
-int16 id
+int16 robot_id
 string status
 int8 battery_remaining
 int16 from_location_id
