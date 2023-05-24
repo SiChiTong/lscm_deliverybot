@@ -7,6 +7,10 @@ mqtt_client:
       ros2mqtt:
         ros_topic: /robots/configuration
         mqtt_topic: robots/configuration
-      mqtt2ros:
-        mqtt_topic: robots/configuration
+        ros_topic: /robots/id_1/status
+        mqtt_topic: robots/id_1/status
+        ros_topic: /robots/id_1/location
+        mqtt_topic: robots/id_1/location
+      mqtt2ros: # for testing only
+        mqtt_topic: robots/id_1/status
         ros_topic: /pong/ros
