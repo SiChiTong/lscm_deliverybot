@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(deliverybot_mqtt)
+project(deliverybot_mqtt_interfaces)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,35 +7,19 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(mqtt_client REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(deliverybot_mqtt_interfaces REQUIRED)
-# find_package(rosidl_default_generators REQUIRED)
 
-# rosidl_generate_interfaces(${PROJECT_NAME}
-#   "msg/Configuration.msg"
-#   "msg/LocationEntry.msg"
-#   "msg/Location.msg"
-#   "msg/Status.msg"
-#   DEPENDENCIES 
-#   geometry_msgs 
-#   std_msgs 
-#   rosidl_default_generators
-# )
+find_package(rosidl_default_generators REQUIRED)
 
-add_executable(mqtt_pub src/mqtt_pub.cpp)
-ament_target_dependencies(mqtt_pub rclcpp geometry_msgs deliverybot_mqtt_interfaces)
-
-install(TARGETS
-  mqtt_pub
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(DIRECTORY
-  launch
-  config
-  DESTINATION share/${PROJECT_NAME}/
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/LocationEntry.msg"
+  "msg/Configuration.msg"
+  "msg/Location.msg"
+  "msg/Status.msg"
+  DEPENDENCIES 
+  geometry_msgs 
+  std_msgs 
+  rosidl_default_generators
 )
 
 if(BUILD_TESTING)
