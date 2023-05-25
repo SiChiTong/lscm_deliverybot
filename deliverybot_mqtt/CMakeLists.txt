@@ -27,8 +27,12 @@ find_package(deliverybot_mqtt_interfaces REQUIRED)
 add_executable(mqtt_pub src/mqtt_pub.cpp)
 ament_target_dependencies(mqtt_pub rclcpp geometry_msgs deliverybot_mqtt_interfaces)
 
+add_executable(mqtt_pub_string src/mqtt_pub_string.cpp)
+ament_target_dependencies(mqtt_pub_string rclcpp geometry_msgs deliverybot_mqtt_interfaces)
+
 install(TARGETS
   mqtt_pub
+  mqtt_pub_string
   DESTINATION lib/${PROJECT_NAME}
 )
 
