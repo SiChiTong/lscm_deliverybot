@@ -75,13 +75,13 @@ private:
         {
             config.append("{\"id\":" + std::to_string(location_id.as_integer_array()[i]));
             config.append(",\"name\":\"" + location_name.as_string_array()[i] + "\"");
-            config.append(",\"coordinate\":[" + std::to_string(coordinate_x.as_double_array()[i]) + ",");
-            config.append(std::to_string(coordinate_y.as_double_array()[i]) + ",");
-            config.append("0.000000]");
-            config.append(",\"orientation\":[0.000000,0.000000,");
-            config.append(std::to_string(orientation_w.as_double_array()[i]) + ",");
-            config.append(std::to_string(orientation_z.as_double_array()[i]) + "]");
-            config.append("},");
+            config.append(",\"pose\":{\"position\":{\"x\":" + std::to_string(coordinate_x.as_double_array()[i]) + ",\"y\":");
+            config.append(std::to_string(coordinate_y.as_double_array()[i]) + ",\"z\":");
+            config.append("0.000000}");
+            config.append(",\"orientation\":{\"x\":0.000000,\"y\":0.000000,\"z\":");
+            config.append(std::to_string(orientation_w.as_double_array()[i]) + ",\"w\":");
+            config.append(std::to_string(orientation_z.as_double_array()[i]) + "}");
+            config.append("}},");
         }
         config.pop_back(); // remove the last character ","
         config.append("]}");
@@ -102,12 +102,12 @@ private:
         // Location publisher
         rclcpp::Parameter map = this->get_parameter("map");
         auto location_ros = std_msgs::msg::String();
-        std::string location = "{\"location\":{\"coordinate\":[" + std::to_string(robot_pose[0]);
-        location.append("," + std::to_string(robot_pose[1]));
-        location.append(",0.000000],\"orientation\":[0.000000,0.000000");
-        location.append("," + std::to_string(robot_pose[5]));
-        location.append("," + std::to_string(robot_pose[6]));
-        location.append("]},\"map\":\"" + map.as_string() + "\"}");
+        std::string location = "{\"pose\":{\"position\":{\"x\":" + std::to_string(robot_pose[0]);
+        location.append(",\"y\":" + std::to_string(robot_pose[1]));
+        location.append(",\"z\":0.000000},\"orientation\":{\"x\":0.000000,\"y\":0.000000");
+        location.append(",\"z\":" + std::to_string(robot_pose[5]));
+        location.append(",\"w\":" + std::to_string(robot_pose[6]));
+        location.append("}},\"map\":\"" + map.as_string() + "\"}");
         location_ros.data = location;
         location_pub_->publish(location_ros);
     }
