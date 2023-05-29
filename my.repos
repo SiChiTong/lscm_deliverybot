@@ -11,3 +11,7 @@ repositories:
     type: git
     url: git@github.com:JosefGst/urdf_basic_shapes.git
     version: humble-devel
+  mqtt_client:
+    type: git
+    url: git@github.com:ika-rwth-aachen/mqtt_client.git
+    version: main
