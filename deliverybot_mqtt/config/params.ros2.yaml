@@ -8,9 +8,9 @@ mqtt_configuration:
         ros_topic: /robots/configuration
         mqtt_topic: robots/configuration
         primitive: true
-      mqtt2ros:
-        mqtt_topic: robots/configuration
-        ros_topic: /test/configuration
+      # mqtt2ros:
+      #   mqtt_topic: robots/configuration
+      #   ros_topic: /test/configuration
 
 mqtt_status:
   ros__parameters:
@@ -25,9 +25,9 @@ mqtt_status:
         advanced:
           mqtt:
             qos: 1
-      mqtt2ros:
-        mqtt_topic: robots/id_1/status
-        ros_topic: /test/id_1/status
+      # mqtt2ros:
+      #   mqtt_topic: robots/id_1/status
+      #   ros_topic: /test/id_1/status
 
 mqtt_location:
   ros__parameters:
@@ -39,6 +39,6 @@ mqtt_location:
         ros_topic: /robots/id_1/location
         mqtt_topic: robots/id_1/location
         primitive: true
-      mqtt2ros:
-        mqtt_topic: robots/id_1/location
-        ros_topic: /test/id_1/location
+      # mqtt2ros:
+      #   mqtt_topic: robots/id_1/location
+      #   ros_topic: /test/id_1/location
