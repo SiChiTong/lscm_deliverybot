@@ -26,6 +26,7 @@ setup(
             "demo_gui_sim = simple_nav.demo_gui_sim:main",
             "gui_door_sim = simple_nav.gui_door_sim:main",
             "gui_door = simple_nav.gui_door:main",
+            "gui_medizine = simple_nav.gui_medizine:main",
         ],
     },
 )

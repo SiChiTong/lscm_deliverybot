@@ -35,6 +35,7 @@ run in workspace
 
     ros2 launch deliverybot_bringup bringup.launch.py
     ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=false
+    ros2 run rviz2 rviz2 -d src/lscm_deliverybot/turtlebot3_cartographer/rviz/tb3_cartographer.rviz
 
 ### :computer: Laptop
 
