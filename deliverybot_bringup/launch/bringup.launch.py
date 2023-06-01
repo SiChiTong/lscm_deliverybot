@@ -14,11 +14,19 @@ from ament_index_python.packages import get_package_share_path
 def generate_launch_description():
    return launch.LaunchDescription([
 
-      # RPLIDAR
+      # RPLIDAR front
       IncludeLaunchDescription(str(get_package_share_path('rplidar_ros2') / 'launch/rplidar_s1_launch.py'),
                               launch_arguments={
                               'serial_port': '/dev/rplidar_front',
                               'frame_id': 'scan_front',
+                              'name_space': ''
+                              }.items()),
+      # RPLIDAR back
+      IncludeLaunchDescription(str(get_package_share_path('rplidar_ros2') / 'launch/rplidar_s1_launch.py'),
+                              launch_arguments={
+                              'serial_port': '/dev/rplidar_back',
+                              'frame_id': 'scan_back',
+                              'name_space': 'back'
                               }.items()),
       # ZLAC
       IncludeLaunchDescription(str(get_package_share_path('ros_zlac_8015_driver') / 'zlac.launch.py')),

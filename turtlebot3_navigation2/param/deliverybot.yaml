@@ -57,7 +57,7 @@ bt_navigator:
     use_sim_time: False
     global_frame: map
     robot_base_frame: base_link
-    odom_topic: /odometry/filtered
+    odom_topic: /odom
     default_bt_xml_filename: "navigate_w_replanning_and_recovery.xml"
     bt_loop_duration: 10
     default_server_timeout: 20
@@ -112,14 +112,14 @@ velocity_smoother:
     velocity_timeout: 1.0  # Time (s) after which if no new velocity commands are received to zero out and stop
     max_accel: [0.2, 0.0, 3.2]  # Maximum acceleration, ordered [Ax, Ay, Aw]
     max_decel: [-0.2, 0.0, -3.2]  # Maximum deceleration, ordered [Ax, Ay, Aw]
-    odom_topic: "/odometry/filtered"  # Topic of odometry to use for estimating current velocities
+    odom_topic: "/odom"  # Topic of odometry to use for estimating current velocities
     odom_duration: 0.1  # Period of time (s) to sample odometry information in for velocity estimation
 
 controller_server:
   ros__parameters:
     use_sim_time: False
     controller_frequency: 10.0
-    odom_topic: "odometry/filtered"
+    odom_topic: "odom"
     min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.5
     min_theta_velocity_threshold: 0.001

@@ -48,14 +48,19 @@ run in workspace
 ### :robot: Robot
 
     ros2 launch deliverybot_bringup bringup.launch.py
-    ros2 launch turtlebot3_navigation2 navigation2.launch.py
+    ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/lab_tko4.yaml
 
 ![navigation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/nav_real.png)  
 ![real_graph](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/real_graph.png)
 
 ### :robot: GUI
+    launch the bringup manually first. For some timing issue it cant be put in the same launch file yet.
 
     ros2 run simple_nav demo_gui
+
+### :robot: start MQTT client
+
+    ros2 launch deliverybot_mqtt example_string_launch.py
     
 ### :computer: Laptop
 
