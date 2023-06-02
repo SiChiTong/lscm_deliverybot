@@ -33,6 +33,6 @@ def generate_launch_description():
       # STATE PUBLISHER
       IncludeLaunchDescription(str(get_package_share_path('deliverybot_bringup') / 'launch/turtlebot3_state_publisher.launch.py')),
       # MPU6050 IMU
-      IncludeLaunchDescription(str(get_package_share_path('mpu6050driver') / 'launch/mpu6050driver_launch.py')),
+      # IncludeLaunchDescription(str(get_package_share_path('mpu6050driver') / 'launch/mpu6050driver_launch.py')),
 
    ])
