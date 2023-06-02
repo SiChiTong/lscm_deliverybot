@@ -4,7 +4,7 @@
     cd lscm_deliverybot
     vcs import .. < my.repos
 
-# :computer: Single deliverybot sim 
+# :computer: deliverybot Simulation 
 
 ## Mapping
 
@@ -13,6 +13,8 @@
 ![simulation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/sim.png)
 
     ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=true
+&#13;
+
     tel
 
 ### save the map
@@ -20,16 +22,41 @@
     ros2 run nav2_map_server map_saver_cli -f ~/map
 
 ## Navigation
-    ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py 
-  
 run in workspace  
 
-    ros2 launch demos gui_door_sim.launch.py
+    ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/house.yaml
 
 ![navigation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/nav.png)  
 ![sim_graph](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/sim_graph.png) 
+### Demos
+launch the lift door controlled dome
+
+    ros2 launch demos gui_door_sim.launch.py
+
 ![gui](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/gui.png) 
-# Single deliverybot real
+
+MQTT puplisher demo.
+
+    docker run --rm --network host --name mosquitto eclipse-mosquitto
+
+to publish the messages on localhost, change the IP in deliverybot_mqtt/config/params.ros2.yaml to localhost
+```yaml
+mqtt_location:
+    ros__parameters:
+        broker:
+        host: localhost
+        port: 1883
+        bridge:
+        ros2mqtt:
+            ros_topic: /robots/id_1/location
+            mqtt_topic: robots/id_1/location
+            primitive: true
+```
+
+    ros2 launch demos gui_med_sim.launch.py 
+
+---
+# :robot: Real deliverybot 
 ## Mapping
 ### :robot: Robot
 
