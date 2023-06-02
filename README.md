@@ -61,7 +61,11 @@ mqtt_location:
 ### :robot: Robot
 
     ros2 launch deliverybot_bringup bringup.launch.py
+&#13;
+
     ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=false
+&#13;
+
     ros2 run rviz2 rviz2 -d src/lscm_deliverybot/turtlebot3_cartographer/rviz/tb3_cartographer.rviz
 
 ### :computer: Laptop
@@ -76,23 +80,36 @@ mqtt_location:
 ### :robot: Robot
 
     ros2 launch deliverybot_bringup bringup.launch.py
+&#13;
+
     ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/lab_tko4.yaml
+
+### :computer: Laptop
+
+    ros2 run rviz2 rviz2 -d src/lscm_deliverybot/turtlebot3_navigation2/rviz/nav.rviz
 
 ![navigation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/nav_real.png)  
 ![real_graph](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/real_graph.png)
 
-### :robot: GUI
-    launch the bringup manually first. For some timing issue it cant be put in the same launch file yet.
+### :robot: Demos
+launch the bringup manually first. For some timing issue it cant be put in the same launch file yet.
 
-    ros2 run simple_nav demo_gui
+    ros2 launch deliverybot_bringup bringup.launch.py
+&#13;
+
+    ros2 launch demos gui_door.launch.py
+  
+&#13;
+or
+
+    ros2 launch demos gui_med.launch.py
+
 
 ### :robot: start MQTT client
 
     ros2 launch deliverybot_mqtt example_string_launch.py
     
-### :computer: Laptop
 
-    ros2 run rviz2 rviz2 -d src/lscm_deliverybot/turtlebot3_navigation2/rviz/nav.rviz
 
 ### Services
 disable the Motors  

@@ -27,6 +27,7 @@ setup(
             "gui_door_sim = simple_nav.gui_door_sim:main",
             "gui_door = simple_nav.gui_door:main",
             "gui_med_sim = simple_nav.gui_med_sim:main",
+            "gui_med = simple_nav.gui_med:main",
         ],
     },
 )
