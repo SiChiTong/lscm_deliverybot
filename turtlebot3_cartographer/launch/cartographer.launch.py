@@ -65,13 +65,13 @@ def generate_launch_description():
             parameters=[laser_filter],
         ),
 
-        Node(
-            package='robot_localization',
-            executable='ekf_node',
-            name='ekf_filter_node',
-            output='screen',
-            parameters=[os.path.join(get_package_share_directory('turtlebot3_navigation2'), 'param/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
-        ),
+        # Node(
+        #     package='robot_localization',
+        #     executable='ekf_node',
+        #     name='ekf_filter_node',
+        #     output='screen',
+        #     parameters=[os.path.join(get_package_share_directory('turtlebot3_navigation2'), 'param/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
+        # ),
 
         Node(
             package='cartographer_ros',
@@ -81,7 +81,8 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time}],
             remappings=[
                 ('/scan', '/scan_filtered'),
-                ('/odom', '/odometry/filtered'),],
+                # ('/odom', '/odometry/filtered'),
+                ],
             arguments=['-configuration_directory', cartographer_config_dir,
                        '-configuration_basename', configuration_basename]),
 
