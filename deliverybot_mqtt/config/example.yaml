@@ -1,13 +1,12 @@
 mqtt_node:
   ros__parameters:
-    map: "24MAP"
     robot_id: 1
-    num_of_locations: 3
+    num_of_locations: 2
     location:
     # unfortunatelly it seems very complicated to parse 2d arrays
-      location_id: [1,2,3]
-      location_name: ["Point A", "Point B", "Point C"]
-      coordinate_x: [1.0, 2.0, 3.0]
-      coordinate_y: [2.0, 3.0, 4.0]
-      orientation_z: [0.0, 0.0, 0.0]
-      orientation_w: [1.0, 1.0, 1.0]
+      location_id: [1,2]
+      location_name: ["CONVEYOR_DECOCTION", "DECOCTION"]
+      coordinate_x: [0.0, 1.0]
+      coordinate_y: [0.0, 4.5]
+      orientation_z: [0.0, 0.689]
+      orientation_w: [1.0, 0.725]

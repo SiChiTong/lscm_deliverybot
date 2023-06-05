@@ -29,7 +29,7 @@ run in workspace
 ![navigation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/nav.png)  
 ![sim_graph](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/sim_graph.png) 
 ### Demos
-launch the lift door controlled dome
+launch the demo with lift door controller
 
     ros2 launch demos gui_door_sim.launch.py
 

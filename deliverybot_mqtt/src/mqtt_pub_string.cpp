@@ -107,7 +107,7 @@ private:
         location.append(",\"z\":0.000000},\"orientation\":{\"x\":0.000000,\"y\":0.000000");
         location.append(",\"z\":" + std::to_string(robot_pose[5]));
         location.append(",\"w\":" + std::to_string(robot_pose[6]));
-        location.append("}},\"map\":\"" + map.as_string() + "\"}");
+        location.append("}},}");
         location_ros.data = location;
         location_pub_->publish(location_ros);
     }
