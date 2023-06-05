@@ -1,7 +1,7 @@
 mqtt_configuration:
   ros__parameters:
     broker:
-      host: localhost #192.168.0.200
+      host: 192.168.0.200 #localhost #192.168.0.200
       port: 1883
     bridge:
       ros2mqtt:
@@ -15,7 +15,7 @@ mqtt_configuration:
 mqtt_status:
   ros__parameters:
     broker:
-      host: localhost #192.168.0.200
+      host: 192.168.0.200 #localhost #192.168.0.200
       port: 1883
     bridge:
       ros2mqtt:
@@ -32,7 +32,7 @@ mqtt_status:
 mqtt_location:
   ros__parameters:
     broker:
-      host: localhost #192.168.0.200
+      host: 192.168.0.200 #localhost #192.168.0.200
       port: 1883
     bridge:
       ros2mqtt:
