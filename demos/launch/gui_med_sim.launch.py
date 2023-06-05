@@ -12,9 +12,9 @@ def generate_launch_description():
                                   }.items()
                                  ),
         launch_ros.actions.Node(name='simple_nav', package='simple_nav', executable='gui_med_sim'),  
+
+        launch_ros.actions.Node(name='simple_nav', package='simple_nav', executable='status_pub'),  
         
         IncludeLaunchDescription(str(get_package_share_path('deliverybot_mqtt') / 'launch/example_string_launch.py'))
-                
-        
-            
+                        
     ])

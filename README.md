@@ -29,13 +29,12 @@ run in workspace
 ![navigation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/nav.png)  
 ![sim_graph](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/sim_graph.png) 
 ### Demos
-launch the demo with lift door controller
-
+#### taking lift
     ros2 launch demos gui_door_sim.launch.py
 
 ![gui](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/gui.png) 
 
-MQTT puplisher demo.
+#### MQTT publisher
 
     docker run --rm --network host --name mosquitto eclipse-mosquitto
 

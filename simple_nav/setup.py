@@ -28,6 +28,7 @@ setup(
             "gui_door = simple_nav.gui_door:main",
             "gui_med_sim = simple_nav.gui_med_sim:main",
             "gui_med = simple_nav.gui_med:main",
+            "status_pub = simple_nav.status_pub:main",
         ],
     },
 )
