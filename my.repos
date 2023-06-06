@@ -1,17 +1,25 @@
 repositories:
-  ros2_laser_scan_merger:
+  door_contr:
     type: git
-    url: https://github.com/mich1342/ros2_laser_scan_merger.git
+    url: git@github.com:JosefGst/door_contr.git
+    version: humble
+  lscm_deliverybot:
+    type: git
+    url: git@github.com:JosefGst/lscm_deliverybot.git
+    version: humble
+  mqtt_client:
+    type: git
+    url: git@github.com:ika-rwth-aachen/mqtt_client.git
     version: main
   ros_zlac_8015_driver:
     type: git
     url: git@github.com:JosefGst/ros_zlac_8015_driver.git
     version: main
+  rplidar_ros2:
+    type: git
+    url: git@github.com:lopenguin/rplidar_ros2.git
+    version: ros2
   urdf_basic_shapes:
     type: git
     url: git@github.com:JosefGst/urdf_basic_shapes.git
     version: humble-devel
-  mqtt_client:
-    type: git
-    url: git@github.com:ika-rwth-aachen/mqtt_client.git
-    version: main
