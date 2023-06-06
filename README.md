@@ -1,8 +1,13 @@
 # lscm_deliverybot
-## install
+Is ad differential drive robot based on the turtlebot to do indoor delivery tasks.
 
+## install
+    
     cd lscm_deliverybot
+    sudo apt install python3-vcstool
     vcs import .. < my.repos
+    roscd # cd to root of ros workspace
+    rosdep update && rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
 
 # :computer: deliverybot Simulation 
 
