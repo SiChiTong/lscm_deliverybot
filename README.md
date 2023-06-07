@@ -8,7 +8,18 @@ Is ad differential drive robot based on the turtlebot to do indoor delivery task
     vcs import .. < my.repos
     roscd # cd to root of ros workspace
     rosdep update && rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
+    cd src/ros_zlac_8015_driver
+    git submodule init
+    git submodule update
 
+install zlac motor driver
+
+    pip3 install pymodbus
+    pip3 install serial_asyncio
+    sudo python3 setup.py install
+    sudo usermod -a -G dialout $USER
+
+    
 # :computer: deliverybot Simulation 
 
 ## Mapping
