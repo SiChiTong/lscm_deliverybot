@@ -18,6 +18,10 @@ install zlac motor driver
     pip3 install serial_asyncio
     sudo python3 setup.py install
     sudo usermod -a -G dialout $USER
+&#13;
+
+    pip install customtkinter
+    pip3 install transforms3d
 
     
 # :computer: deliverybot Simulation 
@@ -97,7 +101,7 @@ mqtt_location:
     ros2 launch deliverybot_bringup bringup.launch.py
 &#13;
 
-    ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/lab_tko4.yaml
+    ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/med.yaml
 
 ### :computer: Laptop
 
