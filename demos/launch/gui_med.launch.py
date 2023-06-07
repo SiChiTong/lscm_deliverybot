@@ -11,7 +11,7 @@ def generate_launch_description():
                                   "map": str(get_package_share_path('turtlebot3_navigation2') / 'map/med.yaml')
                                   }.items()
                                  ),
-        launch_ros.actions.Node(name='simple_nav', package='simple_nav', executable='gui_med'),  
+        launch_ros.actions.Node(name='simple_nav', package='simple_nav', executable='gui_med', on_exit=launch.actions.Shutdown()),  
 
         launch_ros.actions.Node(name='simple_nav', package='simple_nav', executable='status_pub'), 
         
