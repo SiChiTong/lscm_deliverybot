@@ -44,7 +44,7 @@ install zlac motor driver
 ## Navigation
 run in workspace  
 
-    ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/house.yaml
+    ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=src/lscm_deliverybot/turtlebot3_navigation2/map/house.yaml use_sim_time:=true
 
 ![navigation](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/nav.png)  
 ![sim_graph](https://github.com/JosefGst/lscm_deliverybot/blob/humble/images/sim_graph.png) 
