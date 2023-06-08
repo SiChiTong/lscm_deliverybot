@@ -11,7 +11,7 @@ from simple_nav.status_pub import StatusPublisher
 
 decoction_conveyor = [.0, .0 , .0, 1]
 # outpatient = [.0, -1.5 , 0.0, 3]
-decoction = [1.0, 4.5 ,1.52 , 2]
+decoction = [0.0, 4.5 ,1.52 , 2]
 
 customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
 customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green

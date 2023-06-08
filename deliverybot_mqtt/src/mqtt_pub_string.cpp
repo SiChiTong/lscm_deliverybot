@@ -45,6 +45,7 @@ public:
 
 private:
     double robot_pose[7] = {};
+    int i = 0;
     struct
     {
         int robot_id;
@@ -75,34 +76,38 @@ private:
     void timer_callback()
     {
         rclcpp::Parameter robot_id = this->get_parameter("robot_id");
-        rclcpp::Parameter num_of_locations = this->get_parameter("num_of_locations");
-        rclcpp::Parameter location_id = this->get_parameter("location.location_id");
-        rclcpp::Parameter location_name = this->get_parameter("location.location_name");
-        rclcpp::Parameter coordinate_x = this->get_parameter("location.coordinate_x");
-        rclcpp::Parameter coordinate_y = this->get_parameter("location.coordinate_y");
-        rclcpp::Parameter orientation_w = this->get_parameter("location.orientation_z");
-        rclcpp::Parameter orientation_z = this->get_parameter("location.orientation_w");
-        // Configuration publisher
-        auto config_ros = std_msgs::msg::String();
-        std::string config = "{\"robot_id\":" + std::to_string(robot_id.as_int());
-        auto location_entry = std_msgs::msg::String();
-        config.append(",\"location\":[");
-        for (int i = 0; i < num_of_locations.as_int(); i++)
-        {
-            config.append("{\"id\":" + std::to_string(location_id.as_integer_array()[i]));
-            config.append(",\"name\":\"" + location_name.as_string_array()[i] + "\"");
-            config.append(",\"pose\":{\"position\":{\"x\":" + std::to_string(coordinate_x.as_double_array()[i]) + ",\"y\":");
-            config.append(std::to_string(coordinate_y.as_double_array()[i]) + ",\"z\":");
-            config.append("0.000000}");
-            config.append(",\"orientation\":{\"x\":0.000000,\"y\":0.000000,\"z\":");
-            config.append(std::to_string(orientation_w.as_double_array()[i]) + ",\"w\":");
-            config.append(std::to_string(orientation_z.as_double_array()[i]) + "}");
-            config.append("}},");
+        if(i < 30){
+            rclcpp::Parameter num_of_locations = this->get_parameter("num_of_locations");
+            rclcpp::Parameter location_id = this->get_parameter("location.location_id");
+            rclcpp::Parameter location_name = this->get_parameter("location.location_name");
+            rclcpp::Parameter coordinate_x = this->get_parameter("location.coordinate_x");
+            rclcpp::Parameter coordinate_y = this->get_parameter("location.coordinate_y");
+            rclcpp::Parameter orientation_w = this->get_parameter("location.orientation_z");
+            rclcpp::Parameter orientation_z = this->get_parameter("location.orientation_w");
+            // Configuration publisher
+            auto config_ros = std_msgs::msg::String();
+            std::string config = "{\"robot_id\":" + std::to_string(robot_id.as_int());
+            auto location_entry = std_msgs::msg::String();
+            config.append(",\"location\":[");
+            for (int i = 0; i < num_of_locations.as_int(); i++)
+            {
+                config.append("{\"id\":" + std::to_string(location_id.as_integer_array()[i]));
+                config.append(",\"name\":\"" + location_name.as_string_array()[i] + "\"");
+                config.append(",\"pose\":{\"position\":{\"x\":" + std::to_string(coordinate_x.as_double_array()[i]) + ",\"y\":");
+                config.append(std::to_string(coordinate_y.as_double_array()[i]) + ",\"z\":");
+                config.append("0.000000}");
+                config.append(",\"orientation\":{\"x\":0.000000,\"y\":0.000000,\"z\":");
+                config.append(std::to_string(orientation_w.as_double_array()[i]) + ",\"w\":");
+                config.append(std::to_string(orientation_z.as_double_array()[i]) + "}");
+                config.append("}},");
+            }
+            config.pop_back(); // remove the last character ","
+            config.append("]}");
+            config_ros.data = config;
+            config_pub_->publish(config_ros);
+
+            i++;
         }
-        config.pop_back(); // remove the last character ","
-        config.append("]}");
-        config_ros.data = config;
-        config_pub_->publish(config_ros);
 
         // Status publisher
         auto status_ros = std_msgs::msg::String();
