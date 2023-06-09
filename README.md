@@ -41,6 +41,12 @@ install zlac motor driver
 
     ros2 run nav2_map_server map_saver_cli -f ~/map
 
+save cartographer pbstream
+
+    roscd turtlebot3_cartographer
+    . shell/save_map.sh map_name
+
+
 ## Navigation
 run in workspace  
 
