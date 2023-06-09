@@ -96,13 +96,13 @@ def generate_launch_description():
         #     ]
         # ),
 
-        Node(
-            package='robot_localization',
-            executable='ekf_node',
-            name='ekf_filter_node',
-            output='screen',
-            parameters=[os.path.join(get_package_share_directory('turtlebot3_navigation2'), 'param/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
-        ),
+        # Node(
+        #     package='robot_localization',
+        #     executable='ekf_node',
+        #     name='ekf_filter_node',
+        #     output='screen',
+        #     parameters=[os.path.join(get_package_share_directory('turtlebot3_navigation2'), 'param/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
+        # ),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([nav2_launch_file_dir, '/bringup_launch.py']),
