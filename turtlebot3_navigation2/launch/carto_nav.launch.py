@@ -45,13 +45,13 @@ def generate_launch_description():
             'param',
             'laser_filter.yaml'))
 
-    param_file_name = TURTLEBOT3_MODEL + '_carto.yaml'
-    param_dir = LaunchConfiguration(
-        'params_file',
-        default=os.path.join(
-            get_package_share_directory('turtlebot3_navigation2'),
-            'param',
-            param_file_name))
+    # param_file_name = TURTLEBOT3_MODEL + '_carto.yaml'
+    # param_dir = LaunchConfiguration(
+    #     'params_file',
+    #     default=os.path.join(
+    #         get_package_share_directory('turtlebot3_navigation2'),
+    #         'param',
+    #         param_file_name))
 
     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
     carto_launch_file_dir = os.path.join(get_package_share_directory('turtlebot3_cartographer'), 'launch')
@@ -69,10 +69,10 @@ def generate_launch_description():
             default_value=map_dir,
             description='Full path to map file to load'),
 
-        DeclareLaunchArgument(
-            'params_file',
-            default_value=param_dir,
-            description='Full path to param file to load'),
+        # DeclareLaunchArgument(
+        #     'params_file',
+        #     default_value=param_dir,
+        #     description='Full path to param file to load'),
 
         DeclareLaunchArgument(
             'use_sim_time',
@@ -105,28 +105,10 @@ def generate_launch_description():
         #     ]
         # ),
 
-        # Node(
-        #     package='robot_localization',
-        #     executable='ekf_node',
-        #     name='ekf_filter_node',
-        #     output='screen',
-        #     parameters=[os.path.join(get_package_share_directory('turtlebot3_navigation2'), 'param/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
-        # ),
-
-        # IncludeLaunchDescription(
-        #     PythonLaunchDescriptionSource([carto_launch_file_dir, '/cartographer_localization.launch.py']),
-        #     launch_arguments={
-        #         'use_sim_time': use_sim_time,
-        #         'params_file': param_dir}.items(),
-        # ),
-        
-        # launch_ros.actions.Node(name='map_server', package='nav2_map_server', executable='map_server', output='screen' , respawn=use_respawn, respawn_delay=2.0,),
-
-
         IncludeLaunchDescription(str(get_package_share_path('turtlebot3_cartographer') / 'launch/cartographer_localization.launch.py'),
                                  launch_arguments={'use_sim_time': use_sim_time}.items()),
 
-        IncludeLaunchDescription(str(get_package_share_path('nav2_bringup') / 'launch/navigation_launch.py'),
+        IncludeLaunchDescription(str(get_package_share_path('turtlebot3_navigation2') / 'launch/navigation_launch.py'),
                                  launch_arguments={'use_sim_time': use_sim_time}.items()),
 
         # IncludeLaunchDescription(
